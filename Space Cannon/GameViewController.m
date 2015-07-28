@@ -44,6 +44,7 @@
     // Create and configure the scene.
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
     scene.scaleMode = SKSceneScaleModeAspectFill;
+    scene.size = skView.bounds.size;
     
     // Present the scene.
     [skView presentScene:scene];
@@ -63,14 +64,14 @@
     }
 }
 
+-(BOOL) prefersStatusBarHidden {
+    return YES;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 @end
