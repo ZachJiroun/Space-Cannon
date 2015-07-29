@@ -15,7 +15,10 @@
     BOOL _didShoot;
 }
 
-static const CGFloat SHOOT_SPEED = 1000.f;
+static const CGFloat kShootSpeed = 1000.f;
+static const CGFloat kHaloLowAngle = 200.0 * M_PI / 180.0;
+static const CGFloat kHaloHighAngle = 340.0 * M_PI / 180.0;
+static const CGFloat kHaloSpeed = 100.0;
 
 static inline CGVector radiansToVector(CGFloat radians)
 {
@@ -23,6 +26,12 @@ static inline CGVector radiansToVector(CGFloat radians)
     vector.dx = cosf(radians);
     vector.dy = sinf(radians);
     return vector;
+}
+
+static inline CGFloat randomInRange(CGFloat low, CGFloat high)
+{
+    CGFloat value = arc4random_uniform(UINT32_MAX) / (CGFloat)UINT32_MAX;
+    return value * (high - low) + low;
 }
 
 -(void)didMoveToView:(SKView *)view {
@@ -61,6 +70,10 @@ static inline CGVector radiansToVector(CGFloat radians)
     // Create cannon rotation actions.
     SKAction *rotateCannon = [SKAction sequence:@[[SKAction rotateByAngle:M_PI duration:2], [SKAction rotateByAngle:-M_PI duration:2]]];
     [_cannon runAction:[SKAction repeatActionForever:rotateCannon]];
+    
+    // Create spawn halo actions
+    SKAction *spawnHalo = [SKAction sequence:@[[SKAction waitForDuration:2 withRange:1], [SKAction performSelector:@selector(spawnHalo) onTarget:self]]];
+    [self runAction:[SKAction repeatActionForever:spawnHalo]];
 }
 
 -(void)shoot
@@ -73,10 +86,24 @@ static inline CGVector radiansToVector(CGFloat radians)
     [_mainLayer addChild:ball];
     
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:6.0];
-    ball.physicsBody.velocity = CGVectorMake(rotationVector.dx * SHOOT_SPEED, rotationVector.dy * SHOOT_SPEED);
+    ball.physicsBody.velocity = CGVectorMake(rotationVector.dx * kShootSpeed, rotationVector.dy * kShootSpeed);
     ball.physicsBody.restitution = 1.0;
     ball.physicsBody.linearDamping = 0.0;
     ball.physicsBody.friction = 0.0;
+}
+
+-(void)spawnHalo
+{
+    // Create halo node
+    SKSpriteNode *halo = [SKSpriteNode spriteNodeWithImageNamed:@"Halo"];
+    halo.position = CGPointMake(randomInRange(halo.size.width * 0.5, self.size.width - (halo.size.width * 0.5)), self.size.height + (halo.size.height * 0.5));
+    halo.physicsBody= [SKPhysicsBody bodyWithCircleOfRadius:16.0];
+    CGVector direction = radiansToVector(randomInRange(kHaloLowAngle, kHaloHighAngle));
+    halo.physicsBody.velocity = CGVectorMake(direction.dx * kHaloSpeed, direction.dy * kHaloSpeed);
+    halo.physicsBody.restitution = 1.0;
+    halo.physicsBody.linearDamping = 0.0;
+    halo.physicsBody.friction = 0.0;
+    [self addChild:halo];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
