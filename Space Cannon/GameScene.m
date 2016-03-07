@@ -20,6 +20,10 @@ static const CGFloat kHaloLowAngle = 200.0 * M_PI / 180.0;
 static const CGFloat kHaloHighAngle = 340.0 * M_PI / 180.0;
 static const CGFloat kHaloSpeed = 100.0;
 
+static const uint32_t kCCHaloCategory = 0x1 << 0;
+static const uint32_t kCCBallCategory = 0x1 << 1;
+static const uint32_t kCCEdgeCategory = 0x1 << 2;
+
 static inline CGVector radiansToVector(CGFloat radians)
 {
     CGVector vector;
@@ -36,9 +40,10 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-
+    
     // Turn off gravity
     self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
+    self.physicsWorld.contactDelegate = self;
     
     // Add background
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"Starfield"];
@@ -51,11 +56,13 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     SKNode *leftEdge = [[SKNode alloc] init];
     leftEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0, self.size.height)];
     leftEdge.position = CGPointZero;
+    leftEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
     [self addChild:leftEdge];
     
     SKNode *rightEdge = [[SKNode alloc] init];
     rightEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0, self.size.height)];
     rightEdge.position = CGPointMake(self.size.width, 0.0);
+    rightEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
     [self addChild:rightEdge];
     
     // Add main layer
@@ -65,6 +72,7 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     // Add cannon
     _cannon = [SKSpriteNode spriteNodeWithImageNamed:@"Cannon"];
     _cannon.position = CGPointMake(self.size.width * 0.5, 0.0);
+    _cannon.zPosition += 1;
     [_mainLayer addChild:_cannon];
     
     // Create cannon rotation actions.
@@ -90,6 +98,9 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     ball.physicsBody.restitution = 1.0;
     ball.physicsBody.linearDamping = 0.0;
     ball.physicsBody.friction = 0.0;
+    ball.physicsBody.categoryBitMask = kCCBallCategory;
+    ball.physicsBody.collisionBitMask = kCCEdgeCategory;
+    ball.zPosition += 1;
 }
 
 -(void)spawnHalo
@@ -103,6 +114,10 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
     halo.physicsBody.restitution = 1.0;
     halo.physicsBody.linearDamping = 0.0;
     halo.physicsBody.friction = 0.0;
+    halo.physicsBody.categoryBitMask = kCCHaloCategory;
+    halo.physicsBody.collisionBitMask = 0.0;
+    halo.physicsBody.contactTestBitMask = kCCBallCategory | kCCEdgeCategory;
+    halo.zPosition += 1;
     [self addChild:halo];
 }
 
@@ -113,6 +128,42 @@ static inline CGFloat randomInRange(CGFloat low, CGFloat high)
         _didShoot = YES;
     }
 }
+
+-(void)addExplosion:(CGPoint)position {
+    NSString *explosionPath = [[NSBundle mainBundle] pathForResource:@"HaloExplosion" ofType:@"sks"];
+    SKEmitterNode *explosion = [NSKeyedUnarchiver unarchiveObjectWithFile:explosionPath];
+    
+    explosion.position = position;
+    explosion.zPosition += 1;
+    [_mainLayer addChild:explosion];
+    
+    SKAction *removeExplosion = [SKAction sequence:@[[SKAction waitForDuration:1.5], [SKAction removeFromParent]]];
+    
+    [explosion runAction:removeExplosion];
+}
+
+-(void)didBeginContact:(SKPhysicsContact *)contact {
+    SKPhysicsBody *firstBody;
+    SKPhysicsBody *secondBody;
+    
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    } else {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    
+    if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCBallCategory) {
+        // Collision between halo and node
+        [self addExplosion:firstBody.node.frame.origin];
+        [firstBody.node removeFromParent];
+        [secondBody.node removeFromParent];
+    } else if (firstBody.categoryBitMask == kCCHaloCategory && secondBody.categoryBitMask == kCCEdgeCategory) {
+        firstBody.velocity = CGVectorMake(firstBody.velocity.dx * -1.0, firstBody.velocity.dy);
+    }
+}
+
 
 -(void)didSimulatePhysics
 {

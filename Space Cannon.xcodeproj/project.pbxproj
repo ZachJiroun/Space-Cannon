@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921707FF1C8D47470055EBAE /* HaloExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 921707FD1C8D47470055EBAE /* HaloExplosion.sks */; };
+		921708001C8D47470055EBAE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 921707FE1C8D47470055EBAE /* spark.png */; };
 		92CD012C1B67121100A694F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CD012B1B67121100A694F4 /* main.m */; };
 		92CD012F1B67121100A694F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CD012E1B67121100A694F4 /* AppDelegate.m */; };
 		92CD01321B67121100A694F4 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CD01311B67121100A694F4 /* GameScene.m */; };
@@ -15,20 +17,11 @@
 		92CD013A1B67121100A694F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CD01381B67121100A694F4 /* Main.storyboard */; };
 		92CD013C1B67121100A694F4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CD013B1B67121100A694F4 /* Images.xcassets */; };
 		92CD013F1B67121100A694F4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92CD013D1B67121100A694F4 /* LaunchScreen.xib */; };
-		92CD014B1B67121100A694F4 /* Space_CannonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CD014A1B67121100A694F4 /* Space_CannonTests.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		92CD01451B67121100A694F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 92CD011E1B67121100A694F4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 92CD01251B67121100A694F4;
-			remoteInfo = "Space Cannon";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		921707FD1C8D47470055EBAE /* HaloExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HaloExplosion.sks; sourceTree = "<group>"; };
+		921707FE1C8D47470055EBAE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		92CD01261B67121100A694F4 /* Space Cannon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Cannon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CD012A1B67121100A694F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92CD012B1B67121100A694F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,20 +35,10 @@
 		92CD01391B67121100A694F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92CD013B1B67121100A694F4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		92CD013E1B67121100A694F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		92CD01441B67121100A694F4 /* Space CannonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Space CannonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92CD01491B67121100A694F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92CD014A1B67121100A694F4 /* Space_CannonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Space_CannonTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		92CD01231B67121100A694F4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92CD01411B67121100A694F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -69,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				92CD01281B67121100A694F4 /* Space Cannon */,
-				92CD01471B67121100A694F4 /* Space CannonTests */,
 				92CD01271B67121100A694F4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				92CD01261B67121100A694F4 /* Space Cannon.app */,
-				92CD01441B67121100A694F4 /* Space CannonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +71,8 @@
 				92CD012E1B67121100A694F4 /* AppDelegate.m */,
 				92CD01301B67121100A694F4 /* GameScene.h */,
 				92CD01311B67121100A694F4 /* GameScene.m */,
+				921707FD1C8D47470055EBAE /* HaloExplosion.sks */,
+				921707FE1C8D47470055EBAE /* spark.png */,
 				92CD01331B67121100A694F4 /* GameScene.sks */,
 				92CD01351B67121100A694F4 /* GameViewController.h */,
 				92CD01361B67121100A694F4 /* GameViewController.m */,
@@ -106,23 +89,6 @@
 			children = (
 				92CD012A1B67121100A694F4 /* Info.plist */,
 				92CD012B1B67121100A694F4 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		92CD01471B67121100A694F4 /* Space CannonTests */ = {
-			isa = PBXGroup;
-			children = (
-				92CD014A1B67121100A694F4 /* Space_CannonTests.m */,
-				92CD01481B67121100A694F4 /* Supporting Files */,
-			);
-			path = "Space CannonTests";
-			sourceTree = "<group>";
-		};
-		92CD01481B67121100A694F4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				92CD01491B67121100A694F4 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -147,39 +113,17 @@
 			productReference = 92CD01261B67121100A694F4 /* Space Cannon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		92CD01431B67121100A694F4 /* Space CannonTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 92CD01511B67121100A694F4 /* Build configuration list for PBXNativeTarget "Space CannonTests" */;
-			buildPhases = (
-				92CD01401B67121100A694F4 /* Sources */,
-				92CD01411B67121100A694F4 /* Frameworks */,
-				92CD01421B67121100A694F4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				92CD01461B67121100A694F4 /* PBXTargetDependency */,
-			);
-			name = "Space CannonTests";
-			productName = "Space CannonTests";
-			productReference = 92CD01441B67121100A694F4 /* Space CannonTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		92CD011E1B67121100A694F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Zach Jiroun";
 				TargetAttributes = {
 					92CD01251B67121100A694F4 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					92CD01431B67121100A694F4 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 92CD01251B67121100A694F4;
 					};
 				};
 			};
@@ -197,7 +141,6 @@
 			projectRoot = "";
 			targets = (
 				92CD01251B67121100A694F4 /* Space Cannon */,
-				92CD01431B67121100A694F4 /* Space CannonTests */,
 			);
 		};
 /* End PBXProject section */
@@ -207,17 +150,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921707FF1C8D47470055EBAE /* HaloExplosion.sks in Resources */,
+				921708001C8D47470055EBAE /* spark.png in Resources */,
 				92CD013F1B67121100A694F4 /* LaunchScreen.xib in Resources */,
 				92CD013C1B67121100A694F4 /* Images.xcassets in Resources */,
 				92CD01341B67121100A694F4 /* GameScene.sks in Resources */,
 				92CD013A1B67121100A694F4 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92CD01421B67121100A694F4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,23 +173,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92CD01401B67121100A694F4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92CD014B1B67121100A694F4 /* Space_CannonTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		92CD01461B67121100A694F4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 92CD01251B67121100A694F4 /* Space Cannon */;
-			targetProxy = 92CD01451B67121100A694F4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		92CD01381B67121100A694F4 /* Main.storyboard */ = {
@@ -294,6 +216,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -359,6 +282,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Space Cannon/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.headlightstudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -369,41 +293,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Space Cannon/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.headlightstudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		92CD01521B67121100A694F4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Space CannonTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Space Cannon.app/Space Cannon";
-			};
-			name = Debug;
-		};
-		92CD01531B67121100A694F4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Space CannonTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Space Cannon.app/Space Cannon";
 			};
 			name = Release;
 		};
@@ -426,14 +317,7 @@
 				92CD01501B67121100A694F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		92CD01511B67121100A694F4 /* Build configuration list for PBXNativeTarget "Space CannonTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				92CD01521B67121100A694F4 /* Debug */,
-				92CD01531B67121100A694F4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
