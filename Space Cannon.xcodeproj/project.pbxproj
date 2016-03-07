@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		921707FF1C8D47470055EBAE /* HaloExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 921707FD1C8D47470055EBAE /* HaloExplosion.sks */; };
 		921708001C8D47470055EBAE /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 921707FE1C8D47470055EBAE /* spark.png */; };
+		921708021C8E19FD0055EBAE /* LifeBarExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 921708011C8E19FD0055EBAE /* LifeBarExplosion.sks */; };
+		921708041C8E205A0055EBAE /* EdgeExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 921708031C8E205A0055EBAE /* EdgeExplosion.sks */; };
 		92CD012C1B67121100A694F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CD012B1B67121100A694F4 /* main.m */; };
 		92CD012F1B67121100A694F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CD012E1B67121100A694F4 /* AppDelegate.m */; };
 		92CD01321B67121100A694F4 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CD01311B67121100A694F4 /* GameScene.m */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		921707FD1C8D47470055EBAE /* HaloExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HaloExplosion.sks; sourceTree = "<group>"; };
 		921707FE1C8D47470055EBAE /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		921708011C8E19FD0055EBAE /* LifeBarExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBarExplosion.sks; sourceTree = "<group>"; };
+		921708031C8E205A0055EBAE /* EdgeExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EdgeExplosion.sks; sourceTree = "<group>"; };
 		92CD01261B67121100A694F4 /* Space Cannon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Cannon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CD012A1B67121100A694F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92CD012B1B67121100A694F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				92CD012E1B67121100A694F4 /* AppDelegate.m */,
 				92CD01301B67121100A694F4 /* GameScene.h */,
 				92CD01311B67121100A694F4 /* GameScene.m */,
+				921708031C8E205A0055EBAE /* EdgeExplosion.sks */,
+				921708011C8E19FD0055EBAE /* LifeBarExplosion.sks */,
 				921707FD1C8D47470055EBAE /* HaloExplosion.sks */,
 				921707FE1C8D47470055EBAE /* spark.png */,
 				92CD01331B67121100A694F4 /* GameScene.sks */,
@@ -150,11 +156,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921708021C8E19FD0055EBAE /* LifeBarExplosion.sks in Resources */,
 				921707FF1C8D47470055EBAE /* HaloExplosion.sks in Resources */,
 				921708001C8D47470055EBAE /* spark.png in Resources */,
 				92CD013F1B67121100A694F4 /* LaunchScreen.xib in Resources */,
 				92CD013C1B67121100A694F4 /* Images.xcassets in Resources */,
 				92CD01341B67121100A694F4 /* GameScene.sks in Resources */,
+				921708041C8E205A0055EBAE /* EdgeExplosion.sks in Resources */,
 				92CD013A1B67121100A694F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
