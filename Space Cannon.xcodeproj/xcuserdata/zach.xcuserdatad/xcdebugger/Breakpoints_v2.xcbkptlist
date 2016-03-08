@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Space Cannon/GameScene.m"
-            timestampString = "479081355.735859"
+            timestampString = "479087321.931175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Space Cannon/GameScene.m"
-            timestampString = "479081355.735859"
+            timestampString = "479087321.931175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
             landmarkName = "-didBeginContact:"
             landmarkType = "5">
          </BreakpointContent>
